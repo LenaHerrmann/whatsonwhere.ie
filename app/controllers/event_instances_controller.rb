@@ -41,6 +41,12 @@ class EventInstancesController < ApplicationController
   # GET /event_instances/1.xml
   def show
     @event_instance = EventInstance.find(params[:id])
+
+    #to show the business within the map
+
+    @business_id = @event_instance.business_id
+    @businesses = Business.new(:user_id =>current_user.id)
+    @business = Business.find(@business_id)
     #to render the posts within event_instances
     @post = Post.new
     #find all comments for an event
@@ -56,11 +62,15 @@ class EventInstancesController < ApplicationController
   # GET /event_instances/new.xml
   def new
     @event_instance = EventInstance.new
+    #@businesses = Businesses.new
+    @business = Business.new(:user_id =>current_user.id)        
+    @user_business = Business.find(:all, :conditions => "user_id = '#{current_user.id}'").map {|b| [b.name, b.id] }
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event_instance }
     end
+
   end
 
   # GET /event_instances/1/edit

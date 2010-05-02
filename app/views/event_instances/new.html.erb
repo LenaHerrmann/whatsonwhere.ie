@@ -35,7 +35,8 @@
     <%= f.label :doorPrice %><br />
     <%= f.text_field :doorPrice %>
   </p>
-
+    <%= f.label :business_id %><br />
+    <%= f.select :business_id, @user_business %>
   <p>
     <%= f.submit 'Create' %>
   </p>

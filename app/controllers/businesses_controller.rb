@@ -27,7 +27,6 @@ class BusinessesController < ApplicationController
 # GF 14/2/10: Changed line below to store business owner for relationship between users table and businesses table
     @business = Business.new(:user_id =>current_user.id)
    
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @business }

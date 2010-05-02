@@ -28,7 +28,7 @@
 </p>
 
 <p>
-
+<%= render :partial => 'map' %>
   
  <%= render :partial => 'comment_form' %>
 Rating: <%= ratings_for @event_instance, :force_static => true, :dimension => :quality, :small => false, :show_user_rating => false %>

@@ -1,8 +1,13 @@
 <div class="loginBoxHeader">
 <h3>Welcome <%= current_user.login %></h3>
+
 </div>
 <div class="loginContent">
 Your links will go here...<br /><br />
-<%= link_to "Log out", :controller => :login_box, :action => :logout %>
+<%= link_to "Maintain your events", :controller => :event_instances, :action => :new %>
+<br /><br />
+<%= link_to "Log out", :controller => :login_box, 
+                       :action => :logout,
+                       :user_id => current_user.id %>
 </div>
 <div class="loginEnd"></div>
